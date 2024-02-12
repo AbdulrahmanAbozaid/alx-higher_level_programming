@@ -84,7 +84,7 @@ class Rectangle(Base):
         """returns the string representation"""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y}"\
             f" - {self.__width}/{self.__height}"
-    
+
     def __update(self, id=None, width=None, height=None, x=None, y=None):
         """updating the rectangle"""
         if id:
@@ -97,7 +97,7 @@ class Rectangle(Base):
             self.x = x
         if y:
             self.y = y
-    
+
     def update(self, *args):
         """updating the rectangle"""
         self.__update(*args)
