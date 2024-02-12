@@ -98,6 +98,14 @@ class Rectangle(Base):
         if y:
             self.y = y
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """updating the rectangle"""
-        self.__update(*args)
+        if len(args):
+            self.__update(*args)
+        elif kwargs:
+            self.__update(**kwargs)
+
+    def to_dictionary(self):
+        """returns a dictionary"""
+        return {"x": self.__x, "y": self.__y, "id": self.id,
+                "height": self.__height, "width": self.__width}
