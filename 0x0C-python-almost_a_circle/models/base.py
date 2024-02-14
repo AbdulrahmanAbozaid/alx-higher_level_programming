@@ -113,6 +113,7 @@ class Base:
                 }) for row in reader
             ]
 
+    @staticmethod
     def draw(list_rectangles, list_squares):
         """draw the objects"""
         import turtle
