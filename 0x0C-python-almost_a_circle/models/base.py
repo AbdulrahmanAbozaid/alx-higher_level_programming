@@ -2,6 +2,7 @@
 """Model of Almost A Circle"""
 from json import dumps, loads
 import csv
+from turtle import pen, pendown
 
 
 class Base:
@@ -111,3 +112,29 @@ class Base:
                     "y": int(row[3]),
                 }) for row in reader
             ]
+
+    def draw(list_rectangles, list_squares):
+        """draw the objects"""
+        import turtle
+        from random import randrange
+        import time
+        objs = list_rectangles + list_squares
+        turtle.Screen().colormode(255)
+        for obj in objs:
+            t = turtle.Turtle()
+            t.color((randrange(0, 255), randrange(0, 255), randrange(0, 255)))
+            t.pensize(1)
+            t.penup()
+            t.pendown()
+            t.setpos(obj.x + t.pos()[0], obj.y - t.pos()[1])
+            t.pensize(7)
+            t.fd(obj.width)
+            t.left(90)
+            t.fd(obj.height)
+            t.left(90)
+            t.fd(obj.width)
+            t.left(90)
+            t.fd(obj.height)
+            t.end_fill()
+            time.sleep(1)
+        time.sleep(5)
